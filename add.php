@@ -16,7 +16,7 @@ if($_POST['id']){
 
         $sql = "UPDATE bookstores SET title=:title, author=:author, available=:available,pages=:pages,isbn=:isbn  WHERE id=:id";
         $stmt= $conn->prepare($sql);
-        $stmt->execute([$title, $author, $available, $pages,$isbn,$id]);
+        $stmt->execute([':title' => $title, ':author' => $author, ':available' => $available, ':pages' => $pages, ':isbn' => $isbn,':id'=>$id]);
          header('Location:index.php');
 
     }
